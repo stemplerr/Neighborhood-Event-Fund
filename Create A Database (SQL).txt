@@ -1,0 +1,191 @@
+USE [master]
+GO
+/****** Object:  Database [SimchaFund]    Script Date: 8/12/2016 1:26:14 PM ******/
+CREATE DATABASE [SimchaFund]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'SimchaFund', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\SimchaFund.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'SimchaFund_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\SimchaFund_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [SimchaFund] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [SimchaFund].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [SimchaFund] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [SimchaFund] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [SimchaFund] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [SimchaFund] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [SimchaFund] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [SimchaFund] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [SimchaFund] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [SimchaFund] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [SimchaFund] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [SimchaFund] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [SimchaFund] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [SimchaFund] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [SimchaFund] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [SimchaFund] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [SimchaFund] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [SimchaFund] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [SimchaFund] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [SimchaFund] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [SimchaFund] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [SimchaFund] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [SimchaFund] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [SimchaFund] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [SimchaFund] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [SimchaFund] SET  MULTI_USER 
+GO
+ALTER DATABASE [SimchaFund] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [SimchaFund] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [SimchaFund] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [SimchaFund] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [SimchaFund] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [SimchaFund]
+GO
+/****** Object:  Table [dbo].[Contributions]    Script Date: 8/12/2016 1:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Contributions](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ContributorId] [int] NOT NULL,
+	[SimchaId] [int] NOT NULL,
+	[Date] [date] NOT NULL,
+	[ContributionAmount] [int] NOT NULL,
+ CONSTRAINT [PK_Contributions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Contributors]    Script Date: 8/12/2016 1:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Contributors](
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[CellNumber] [varchar](50) NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[AlwaysInclude] [bit] NOT NULL,
+ CONSTRAINT [PK_Contributors] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Deposit]    Script Date: 8/12/2016 1:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Deposit](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [date] NOT NULL,
+	[ContributorId] [int] NOT NULL,
+	[Amount] [int] NOT NULL,
+ CONSTRAINT [PK_Deposit] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Simchos]    Script Date: 8/12/2016 1:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Simchos](
+	[BaalSimcha] [varchar](50) NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [date] NOT NULL,
+	[total] [int] NOT NULL,
+ CONSTRAINT [PK_Simchos] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[Contributions]  WITH CHECK ADD  CONSTRAINT [FK_ManyToMany_Contributors] FOREIGN KEY([ContributorId])
+REFERENCES [dbo].[Contributors] ([Id])
+GO
+ALTER TABLE [dbo].[Contributions] CHECK CONSTRAINT [FK_ManyToMany_Contributors]
+GO
+ALTER TABLE [dbo].[Contributions]  WITH CHECK ADD  CONSTRAINT [FK_ManyToMany_Simchos] FOREIGN KEY([SimchaId])
+REFERENCES [dbo].[Simchos] ([Id])
+GO
+ALTER TABLE [dbo].[Contributions] CHECK CONSTRAINT [FK_ManyToMany_Simchos]
+GO
+ALTER TABLE [dbo].[Deposit]  WITH CHECK ADD  CONSTRAINT [FK_Deposit_Contributors] FOREIGN KEY([ContributorId])
+REFERENCES [dbo].[Contributors] ([Id])
+GO
+ALTER TABLE [dbo].[Deposit] CHECK CONSTRAINT [FK_Deposit_Contributors]
+GO
+/****** Object:  StoredProcedure [dbo].[GetSimchosWithContributorCount]    Script Date: 8/12/2016 1:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetSimchosWithContributorCount]
+AS
+BEGIN
+select COUNT(c.id) as contrcount, s.BaalSimcha, s.Date, s.total
+from simchos s
+left join ManyToMany m 
+on s.id = m.SimchaId
+left join Contributors c
+on c.Id = m.ContributorId
+group by s.BaalSimcha, s.Date, s.total
+END
+GO
+USE [master]
+GO
+ALTER DATABASE [SimchaFund] SET  READ_WRITE 
+GO

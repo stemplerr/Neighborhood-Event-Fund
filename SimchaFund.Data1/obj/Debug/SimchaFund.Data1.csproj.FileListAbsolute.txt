@@ -1,0 +1,5 @@
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\SimchaFund.Data1\bin\Debug\SimchaFund.Data1.dll
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\SimchaFund.Data1\bin\Debug\SimchaFund.Data1.pdb
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\SimchaFund.Data1\obj\Debug\SimchaFund.Data1.csprojResolveAssemblyReference.cache
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\SimchaFund.Data1\obj\Debug\SimchaFund.Data1.dll
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\SimchaFund.Data1\obj\Debug\SimchaFund.Data1.pdb

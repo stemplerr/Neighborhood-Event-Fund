@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/simchos/getsimchos">Neighborhood Simcha Fund</a></li>
+                <li><a href="/simchos/getsimchos">Simchos</a></li>
+                <li><a href="/contributors/getcontributors">Contributors</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container" style="width: 1000px; margin-top: 55px;">
+        @RenderBody()
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
