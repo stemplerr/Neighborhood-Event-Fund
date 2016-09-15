@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Homework_5_26.Models;
-using SimchaFund.Data1;
+using EventFund.Data;
 
 namespace Homework_5_26.Controllers
 {
@@ -16,7 +16,7 @@ namespace Homework_5_26.Controllers
         public ActionResult GetContributors(string query)
         {
             ContributorsViewModel vm = new ContributorsViewModel();
-            SimchosManager manager = new SimchosManager(Properties.Settings.Default.ConnString);
+            EventRepository manager = new EventRepository(Properties.Settings.Default.ConnString);
             if (string.IsNullOrEmpty(query))
                 vm.Contributors = manager.GetContributors();
             else
@@ -32,7 +32,7 @@ namespace Homework_5_26.Controllers
                 contributor.CellNumber != null)
             {
                 ContributorsViewModel vm = new ContributorsViewModel();
-                SimchosManager manager = new SimchosManager(Properties.Settings.Default.ConnString);
+                EventRepository manager = new EventRepository(Properties.Settings.Default.ConnString);
                 manager.AddContributor(contributor);
             }
             return RedirectToAction("GetContributors", "Contributors");
@@ -40,7 +40,7 @@ namespace Homework_5_26.Controllers
         [HttpPost]
         public ActionResult EditContributor(Contributor contributor)
         {
-            SimchosManager manager = new SimchosManager(Properties.Settings.Default.ConnString);
+            EventRepository manager = new EventRepository(Properties.Settings.Default.ConnString);
             manager.EditContributor(contributor);
             return RedirectToAction("GetContributors", "Contributors");
         }
@@ -48,18 +48,19 @@ namespace Homework_5_26.Controllers
         [HttpPost]
         public ActionResult Deposit(int id, int amount)
         {
-            SimchosManager manager = new SimchosManager(Properties.Settings.Default.ConnString);
+            EventRepository manager = new EventRepository(Properties.Settings.Default.ConnString);
             int newAmount = manager.Deposit(id, amount, DateTime.Now);
             return Json(newAmount, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult History(int contributorId)
         {
-            SimchosManager manager = new SimchosManager(Properties.Settings.Default.ConnString);
+            EventRepository manager = new EventRepository(Properties.Settings.Default.ConnString);
             HistoryViewModel vm = new HistoryViewModel();
             Contributor cont = manager.GetContributors().First(c => c.Id == contributorId);
             vm.ContributorName = cont.FirstName + " " + cont.LastName;
-            vm.ContributorBalance = cont.Balance;
+            vm.ContributorBalance = 0;
+            //vm.ContributorBalance = cont.Balance;
             vm.Transactions = manager.GetContributorHistory(contributorId);
             return View(vm);
         }

@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "GetContributors";
 }
-@using SimchaFund.Data1;
+@using EventFund.Data;
 @model Homework_5_26.Models.ContributorsViewModel
 
 <div class="container" style="margin-top: 100px;">
@@ -30,7 +30,7 @@
             <th>History</th>
             <th>Edit</th>
         </tr>
-        @foreach (Contributor c in Model.Contributors)
+        @foreach (ContributorWithBalance c in Model.Contributors)
         {
             <tr data-contributor-id="@c.Id">
                 <td>@c.FirstName @c.LastName</td>

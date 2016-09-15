@@ -6,7 +6,6 @@ C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homewo
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\Newtonsoft.Json.dll
-C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\SimchaFund.Data1.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Net.Http.Formatting.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Web.Http.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Web.Http.WebHost.dll
@@ -18,7 +17,6 @@ C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homewo
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Web.WebPages.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Web.WebPages.Razor.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\WebGrease.dll
-C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\SimchaFund.Data1.pdb
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\EntityFramework.xml
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\Newtonsoft.Json.xml
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\System.Net.Http.Formatting.xml
@@ -32,3 +30,5 @@ C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homewo
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\obj\Debug\Homework_5_26.csprojResolveAssemblyReference.cache
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\obj\Debug\Homework_5_26.dll
 C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\obj\Debug\Homework_5_26.pdb
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\EventFund.Data.dll
+C:\Users\Rochel Faiga\Documents\Visual Studio 2013\Projects\Homework 5-26\Homework 5-26\bin\EventFund.Data.pdb

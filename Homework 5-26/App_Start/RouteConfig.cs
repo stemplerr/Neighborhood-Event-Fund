@@ -16,7 +16,7 @@ namespace Homework_5_26
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Simchos", action = "GetSimchos", id = UrlParameter.Optional }
+                defaults: new { controller = "Events", action = "GetEvents", id = UrlParameter.Optional }
             );
         }
     }

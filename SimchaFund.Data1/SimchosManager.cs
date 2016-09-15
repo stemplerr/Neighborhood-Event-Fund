@@ -15,32 +15,32 @@ namespace SimchaFund.Data1
             _connString = connString;
         }
 
-        //---------------------------Simchos Page --------------------------------------//
+        //---------------------------Events Page --------------------------------------//
 
-        public IEnumerable<SimchaWithContrCount> GetSimchosWithCount()
-        {
-            var simchos = new List<SimchaWithContrCount>();
-            DBAction(cmd =>
-                {
-                    cmd.CommandText = "select COUNT(c.id) as contrcount, s.BaalSimcha, s.Date, s.total, s.id " +
-                                       " from simchos s left join Contributions m  " +
-                                        "on s.id = m.SimchaId left join Contributors c " +
-                                        "on c.Id = m.ContributorId group by s.BaalSimcha, s.Date, s.total, s.id";
-                    var reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        simchos.Add(new SimchaWithContrCount
-                        {
-                            Count = (int)reader["contrcount"],
-                            BaalSimcha = (string)reader["baalsimcha"],
-                            Date = (DateTime)reader["date"],
-                            Total = (int?)reader["total"],
-                            Id = (int)reader["id"]
-                        });
-                    }
-                });
-            return simchos;
-        }
+      //  public IEnumerable<SimchaWithContrCount> GetSimchosWithCount()
+      //  {
+      //      var simchos = new List<SimchaWithContrCount>();
+      //      DBAction(cmd =>
+      //          {
+      //              cmd.CommandText = "select COUNT(c.id) as contrcount, s.BaalSimcha, s.Date, s.total, s.id " +
+      //                                 " from simchos s left join Contributions m  " +
+      //                                  "on s.id = m.SimchaId left join Contributors c " +
+      //                                  "on c.Id = m.ContributorId group by s.BaalSimcha, s.Date, s.total, s.id";
+      //              var reader = cmd.ExecuteReader();
+      //              while (reader.Read())
+      //              {
+      //                  simchos.Add(new SimchaWithContrCount
+      //                  {
+      //                      Count = (int)reader["contrcount"],
+      //                      BaalSimcha = (string)reader["baalsimcha"],
+      //                      Date = (DateTime)reader["date"],
+      //                      Total = (int?)reader["total"],
+      //                      Id = (int)reader["id"]
+      //                  });
+      //              }
+      //          });
+      //      return simchos;
+      //  }
 
         public int GetTotalContributors()
         {
@@ -135,6 +135,7 @@ namespace SimchaFund.Data1
                 }
                 else if (prevContribution == null && contribution.Included)
                    {
+                    //in repo as addeventcontribution
                        AddSimchaContribution(contribution.Id, simchaId, contribution.Amount);
                    }
             }

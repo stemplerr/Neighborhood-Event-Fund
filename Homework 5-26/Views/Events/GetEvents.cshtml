@@ -1,9 +1,9 @@
 ﻿@{
-    ViewBag.Title = "SimchosIndex";
+    ViewBag.Title = "Events Fund";
 }
 
-@using SimchaFund.Data1;
-@model Homework_5_26.Models.SimchosViewModel
+@using EventFund.Data;
+@model Homework_5_26.Models.EventsViewModel
 
 @if (!String.IsNullOrEmpty(Model.Message))
 {
@@ -17,7 +17,7 @@
 <div class="container" style="margin-top:50px;">
     <div class="row">
         <div class="col-md-2">
-            <button class="btn btn-success " id="add-simcha">Add Simcha</button>
+            <button class="btn btn-success " id="add-event">Add Event</button>
         </div>
         
     </div>
@@ -25,42 +25,42 @@
     <table class="table table-hover table-bordered table-striped">
         <tr>
             <th>Date</th>
-            <th>Baalei Simcha</th>
+            <th>Event Host</th>
             <th>Number of Contributors</th>
             <th>Total</th>
             <th>Contributions</th>
             @*<th>Email Organizer</th>*@
         </tr>
-        @foreach (SimchaWithContrCount s in Model.SimchosWithCount)
+        @foreach (EventWithContributorCount s in Model.EventsWithCount)
         {
             <tr>
                 <td>@s.Date.ToLongDateString()</td>
-                <td>@s.BaalSimcha</td>
+                <td>@s.EventHost</td>
                 <td>@s.Count <span style="font-weight: bolder;">/ @Model.TotalContributers</span></td>
-                <td>@s.Total</td>
-                <td><a href="/simchos/getcontributions?simchaId=@s.Id" class="btn btn-warning" id="contributions-button">Go</a></td>
+                <td>$@s.Total</td>
+                <td><a href="/events/getcontributions?eventId=@s.Id" class="btn btn-warning" id="contributions-button">Go</a></td>
                 @*<td><button class="btn btn-warning" id="emails-button">Go</button></td>*@
             </tr>
         }
     </table>
 </div>
 
-<div class="modal fade" id="add-simcha-modal">
-    <form method="POST" action="/simchos/addsimcha">
+<div class="modal fade" id="add-event-modal">
+    <form method="POST" action="/events/addevent">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">Add Event</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class='col-sm-6'>
                              <div class="form-group">
                                 <label>Family Name</label>
-                                <input class="form-control" type="text" name="baalsimcha" />
+                                <input class="form-control" type="text" name="eventhost" />
                             </div>
                         </div>
                     </div>

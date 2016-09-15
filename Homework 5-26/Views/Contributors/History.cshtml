@@ -2,7 +2,7 @@
     ViewBag.Title = "History";
 }
 
-@using SimchaFund.Data1;
+@using EventFund.Data;
 @model Homework_5_26.Models.HistoryViewModel
 
 <h1>History For @Model.ContributorName</h1>
@@ -17,7 +17,7 @@
     @foreach (Transaction t in Model.Transactions)
     {
         <tr>
-            <td>@(t.Type ==  TransactionType.Deposit ? "Deposit" : "Contribution to the " + t.SimchaName + " simcha")</td>
+            <td>@(t.Type ==  TransactionType.Deposit ? "Deposit" : "Contribution to the " + t.EventHost + " event")</td>
             <td>@t.Date.ToLongDateString()</td>
             <td>@(t.Type == TransactionType.Deposit ? "+" : "-")@t.Amount</td>
         </tr>

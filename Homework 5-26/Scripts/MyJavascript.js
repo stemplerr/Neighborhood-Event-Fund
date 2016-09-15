@@ -1,6 +1,6 @@
 ﻿$(function () {
-    $('#add-simcha').on('click', function () {
-        $('#add-simcha-modal').modal();
+    $('#add-event').on('click', function () {
+        $('#add-event-modal').modal();
     });
     $('#datetimepicker1').datetimepicker();
 });
