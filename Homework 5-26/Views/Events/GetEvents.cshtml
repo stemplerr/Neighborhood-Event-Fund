@@ -60,9 +60,19 @@
                         <div class='col-sm-6'>
                              <div class="form-group">
                                 <label>Family Name</label>
-                                <input class="form-control" type="text" name="eventhost" />
+                                <input class="form-control" type="text" name="eventhost" id="eventhost"/>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <input type="checkbox" name="test-checkbox" />
+
+                    </div>
+                    <div class="row">
+                     <select name="select">
+                         <option value="1">one</option>
+                         <option value="2">two</option>
+                     </select>
                     </div>
                     <div class="row">
                         <!-- / Start Date Time Picker -->
@@ -81,13 +91,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-success">Add</button>
+                    <button id="add-event-button"class="btn btn-success">Add</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </form>
 </div><!-- /.modal -->
-
 @section scripts 
 {
 <script src="~/Scripts/MyJavascript.js"></script>
